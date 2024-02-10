@@ -1,0 +1,28 @@
+<.nav items={[
+  %{text: "Dashboard", navigate: "/home"},
+  %{text: "Profile", navigate: "/profile"},
+  %{text: "Settings", navigate: "/settings"}
+]} />
+
+
+<div class="flex box-border pt-16 relative overflow-hidden">
+  <.sidebar
+    items={[
+      %{text: "Dashboard", icon: "hero-chart-bar-square", navigate: "/"},
+      %{text: "Data", icon: "hero-circle-stack", navigate: "/updates"},
+      %{text: "Reports", icon: "hero-document-chart-bar", navigate: "/reports"},
+      %{text: "Settings", icon: "hero-cog-6-tooth", navigate: "/settings", children: [
+        %{text: "System", icon: "hero-wrench-screwdriver", navigate: "/settings/general"},
+        %{text: "Users", icon: "hero-users", navigate: "/settings/users"}
+        ]
+      }
+    ]}
+  />
+
+  <div id="main-content" class="relative top-0 ml-64 min-h-full w-full overflow-y-auto">
+    <main>
+      <.flash_group flash={@flash} />
+      <%= @inner_content %>
+    </main>
+  </div>
+</div>
